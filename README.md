@@ -24,4 +24,24 @@
 
 19. Vamos a nextcloud y en "Communic projects" le damos a "Get ZIP file" para descargarnos el archivo comprimido
 20. Lo copiamos a la carpeta que hemos creado al principio
-21. 
+21. Movemos el archivo a /var/www/html (sudo mv /vagrant/latest.zip /var/www/html/)
+22. Entramos a /var/www/html/ (cd /var/www/html/)
+23. Unzipeamos el archivo (sudo unzip *archivo*)
+24. Copiamos el contenido de nextcloud al repositorio actual (sudo cp -R nextcloud/. .)
+25. Ponemos permisos (chmod -R 775 .) 
+26. Y mas permisos (chown -R root:www-data .)
+
+27. Editamos el fichero VargantFile (vi VagrantFile)
+28. Desmarcamos las siguientes lineas
+```# Create a forwarded port mapping which allows access to a specific port
+# within the machine from a port on the host machine. In the example below,
+# accessing "localhost:8080" will access port 80 on the guest machine.
+# NOTE: This will enable public access to the opened port
+config.vm.network "forwarded_port", guest: 80, host: 8080```
+
+
+```# Create a public network, which generally matched to bridged network.
+# Bridged networks make the machine appear as another physical device on
+# your network.
+config.vm.network "public_network"```
+
