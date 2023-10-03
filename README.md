@@ -37,11 +37,11 @@
 # within the machine from a port on the host machine. In the example below,
 # accessing "localhost:8080" will access port 80 on the guest machine.
 # NOTE: This will enable public access to the opened port
-config.vm.network "forwarded_port", guest: 80, host: 8080```
+config.vm.network "forwarded_port", guest: 80, host: 8080
 
 
-```# Create a public network, which generally matched to bridged network.
+# Create a public network, which generally matched to bridged network.
 # Bridged networks make the machine appear as another physical device on
 # your network.
-config.vm.network "public_network"```
+config.vm.network "public_network"
 
